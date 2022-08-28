@@ -1,0 +1,28 @@
+﻿
+
+@{
+
+
+
+    DateTime today = DateTime.Now;
+    if (today.Date == ViewBag.Day)
+    {
+        <h2 style="color:lightseagreen;">@ViewBag.Module</h2>
+
+        if (!string.IsNullOrEmpty(ViewBag.Module))
+        {
+            <script type="text/javascript">
+        alert("@ViewBag.Module");
+            </script>
+        }
+    }
+
+
+
+}
+
+
+<h3 style="color:red;">@ViewBag.Enter</h3>
+<p2> @Html.ActionLink("Modules", "Index", "Modules")<br /></p2>
+<p2> @Html.ActionLink("Record Study Hours", "Index", "StudentModules")<br /></p2>
+<p2> @Html.ActionLink("Schedule Module Date", "Index", "DateModules")<br /></p2>

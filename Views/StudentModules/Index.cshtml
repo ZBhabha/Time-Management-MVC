@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TimeWebApp.Model.StudentModule>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Record Progress</a>
+   
+    
+</p>
+<p2> @Html.ActionLink("Go to Modules", "Index", "Modules")</p2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module ID
+            </th>
+
+            <th>
+                Hours Worked
+            </th>
+            <th>
+                Hours Remaining
+            </th>
+            <th>
+               Date Worked
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModId)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkedHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursRemaining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkDate)
+            </td>
+
+
+            <td>
+               
+                <a asp-action="Delete" asp-route-id="@item.StudentModuleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

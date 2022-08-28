@@ -1,0 +1,41 @@
+﻿@model TimeWebApp.Model.Student
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<h1>Login</h1>
+<h3 style="color:red;">@ViewBag.Login</h3>
+
+<h3 style="color:green;">@ViewBag.Yay</h3>
+
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StuId" class="control-label">Student Number</label>
+                <input asp-for="StuId" class="form-control" />
+                <span asp-validation-for="StuId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

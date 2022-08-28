@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TimeWebApp.Model.Module>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Add Module</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Module Name
+            </th>
+            <th>
+                Number of Credits
+            </th>
+            <th>
+                Class Hours
+            </th>
+            <th>
+                Self Study Hours Required
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCredits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelfStudy)
+            </td>
+          
+            <td>
+              
+               
+                <a asp-action="Delete" asp-route-id="@item.ModId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
